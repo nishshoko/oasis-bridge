@@ -1,0 +1,16 @@
+{
+  "accountAssociation": {
+    "header": "",
+    "payload": "",
+    "signature": ""
+  },
+  "miniapp": {
+    "version": "1",
+    "name": "OASIS Bridge",
+    "iconUrl": "https://oasis-bridge.vercel.app/icon.png",
+    "homeUrl": "https://oasis-bridge.vercel.app",
+    "splashImageUrl": "https://oasis-bridge.vercel.app/splash.png",
+    "splashBackgroundColor": "#05080f",
+    "webhookUrl": "https://oasis-bridge.vercel.app/api/webhook"
+  }
+}
