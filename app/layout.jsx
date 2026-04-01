@@ -10,6 +10,13 @@ export const metadata = {
     url: "https://oasis-bridge-two.vercel.app",
     siteName: "OASIS Bridge",
     type: "website",
+    images: [
+      {
+        url: "https://oasis-bridge-two.vercel.app/og.png",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
   other: {
     "base:app_id": "69cd187b2608b1800e5d5316",
