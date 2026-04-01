@@ -7,10 +7,10 @@
   "miniapp": {
     "version": "1",
     "name": "OASIS Bridge",
-    "iconUrl": "https://oasis-bridge.vercel.app/icon.png",
-    "homeUrl": "https://oasis-bridge.vercel.app",
-    "splashImageUrl": "https://oasis-bridge.vercel.app/splash.png",
+    "iconUrl": "https://oasis-bridge-two.vercel.app/icon.png",
+    "homeUrl": "https://oasis-bridge-two.vercel.app",
+    "splashImageUrl": "https://oasis-bridge-two.vercel.app/splash.png",
     "splashBackgroundColor": "#05080f",
-    "webhookUrl": "https://oasis-bridge.vercel.app/api/webhook"
+    "webhookUrl": "https://oasis-bridge-two.vercel.app/api/webhook"
   }
 }

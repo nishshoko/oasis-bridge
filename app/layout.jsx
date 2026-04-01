@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: {
     title: "OASIS Bridge — Pocket Teleporter",
     description: "Teleport assets between Solana and Base with the OASIS Bridge",
-    url: "https://oasis-bridge.vercel.app",
+    url: "https://oasis-bridge-two.vercel.app",
     siteName: "OASIS Bridge",
     type: "website",
   },
