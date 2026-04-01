@@ -13,7 +13,7 @@ export const metadata = {
   },
   other: {
     "base:app_id": "69cd187b2608b1800e5d5316",
-    "base:builder-code": "",
+    "base:builder-code": "bc_idp4xf10",
   },
 };
 
