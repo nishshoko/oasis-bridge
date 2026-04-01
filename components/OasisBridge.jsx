@@ -333,6 +333,7 @@ export default function OasisBridge() {
   const [toToken, setToToken] = useState(TOKENS[BASE_CHAIN_ID][0]);
   const [amount, setAmount] = useState("");
   const [recipientAddress, setRecipientAddress] = useState("");
+  const [manualSolanaAddress, setManualSolanaAddress] = useState("");
   const [quote, setQuote] = useState(null);
   const [status, setStatus] = useState("idle");
   const [error, setError] = useState("");
@@ -344,15 +345,18 @@ export default function OasisBridge() {
 
   // Dynamic wallet address based on origin chain
   const isSolanaOrigin = fromChain === SOLANA_CHAIN_ID;
+  const solanaAddress = solanaPublicKey?.toBase58() || manualSolanaAddress || "";
   const walletAddress = isSolanaOrigin
-    ? (solanaPublicKey?.toBase58() || "")
+    ? solanaAddress
     : (evmAddress || "");
-  const isOriginConnected = isSolanaOrigin ? solanaConnected : evmConnected;
+  const isOriginConnected = isSolanaOrigin
+    ? (solanaConnected || !!manualSolanaAddress)
+    : evmConnected;
 
   // Auto-fill recipient from the opposite chain's wallet
   const autoRecipient = isSolanaOrigin
     ? (evmAddress || "")
-    : (solanaPublicKey?.toBase58() || "");
+    : (solanaAddress || "");
 
   // Signal Base App to hide splash screen
   useEffect(() => {
@@ -570,7 +574,42 @@ export default function OasisBridge() {
           <ConnectWallet />
           <ConnectSolanaWallet />
         </div>
+        <span style={{
+          fontFamily: "var(--font-hud)", fontSize: 8, letterSpacing: "0.1em",
+          color: "var(--neon-magenta)", opacity: 0.45,
+        }}>
+          * SOLANA WALLET — BROWSER EXTENSION ONLY
+        </span>
         {evmConnected && <SignIn />}
+
+        {/* Manual Solana address input (for Base App where extensions unavailable) */}
+        {!solanaConnected && (
+          <div style={{ width: "100%", maxWidth: 440 }}>
+            <div style={{
+              fontSize: 8, letterSpacing: "0.15em", opacity: 0.4,
+              marginBottom: 4, textAlign: "center",
+              color: "var(--neon-magenta)",
+            }}>
+              OR ENTER SOLANA ADDRESS MANUALLY
+            </div>
+            <input
+              type="text"
+              placeholder="Solana address (e.g. 7sPk...)"
+              value={manualSolanaAddress}
+              onChange={e => setManualSolanaAddress(e.target.value.trim())}
+              style={{
+                width: "100%", padding: "8px 12px", fontSize: 11,
+                textAlign: "center",
+                background: "rgba(255,0,170,0.04)",
+                border: "1px solid rgba(255,0,170,0.25)",
+                borderRadius: 3,
+                color: "var(--neon-magenta)",
+                fontFamily: "var(--font-hud)",
+                outline: "none",
+              }}
+            />
+          </div>
+        )}
       </div>
 
       {/* Status */}
