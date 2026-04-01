@@ -5,6 +5,7 @@ import { useAccount, useWalletClient } from "wagmi";
 import { useWallet } from "@solana/wallet-adapter-react";
 import { useConnection } from "@solana/wallet-adapter-react";
 import { VersionedTransaction } from "@solana/web3.js";
+import sdk from "@farcaster/frame-sdk";
 import ConnectWallet from "./ConnectWallet";
 import ConnectSolanaWallet from "./ConnectSolanaWallet";
 import SignIn from "./SignIn";
@@ -352,6 +353,11 @@ export default function OasisBridge() {
   const autoRecipient = isSolanaOrigin
     ? (evmAddress || "")
     : (solanaPublicKey?.toBase58() || "");
+
+  // Signal Base App to hide splash screen
+  useEffect(() => {
+    sdk.actions.ready();
+  }, []);
 
   useEffect(() => {
     const t = setInterval(() => setTime(new Date()), 1000);
