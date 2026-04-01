@@ -548,7 +548,7 @@ export default function OasisBridge() {
           letterSpacing: "0.08em", lineHeight: 1.1,
           textShadow: "0 0 20px rgba(0,240,255,0.5), 0 0 40px rgba(255,0,170,0.3)",
         }}>
-          POCKET BRIDGE
+          OASIS BRIDGE
         </GlitchText>
         <div style={{ fontSize: 9, letterSpacing: "0.3em", opacity: 0.4, marginTop: 4, color: "var(--neon-magenta)" }}>
           ◈ CROSS-CHAIN TELEPORTER ◈ POWERED BY RELAY
@@ -794,7 +794,7 @@ export default function OasisBridge() {
           fontSize: 8, letterSpacing: "0.2em", opacity: 0.25,
           textAlign: "center", lineHeight: 1.8,
         }}>
-          ◈ OASIS BRIDGE TERMINAL v2.049 ◈<br />
+          ◈ OASIS BRIDGE v1.0 ◈<br />
           RELAY PROTOCOL · SOLANA ↔ BASE · BASE MINI APP
         </div>
       </div>
